@@ -6,10 +6,11 @@ function Question({ id, question, options, correctAnswer, selectedOption, comple
     const [choosenOption, setChoosenOption] = useState('');
 
     function chooseOption(option) {
-        if (!complete) {
-            setChoosenOption(option);
-            selectedOption(id, option);
+        if (complete) {
+            return;
         }
+        setChoosenOption(option);
+        selectedOption(id, option);
     }
 
     const optionElements = options.map((option) => {
